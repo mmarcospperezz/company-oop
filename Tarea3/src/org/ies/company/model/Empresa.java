@@ -22,10 +22,6 @@ public class Empresa {
         } return null;
     }
 
-    private Empleado buscarEmpleadosEnDepartamento(String nombre){
-
-    }
-
     public String getNombre() {
         return nombre;
     }
