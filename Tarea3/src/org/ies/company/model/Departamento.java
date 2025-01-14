@@ -14,9 +14,29 @@ public class Departamento {
         this.empleados = empleados;
     }
 
-    public void showInfo() {
-        System.out.println("Datos del departamento:" + nombre + presupuesto + empleados);
+        public void showInfoEmpleado() {
+            for (int i = 0; i < empleados.length; i++) {
+                Empleado empleado = empleados[i];
+                System.out.println("Empleado " + (i + 1));
+                empleado.showInfo();
+            }
+        }
+
+    public void showInfoEmpleadoNif(String nif){
+        Empleado empleado = findEmpleadoNif(nif);
+        if (empleado != null){
+            empleado.showInfo();
+        }
     }
+    public Empleado findEmpleadoNif(String nif){
+        for (Empleado empleado: empleados){
+            if (empleado.getNif().equals(nif)){
+                return empleado;
+            }
+        }
+        return null;
+    }
+
 
     public String getNombre() {
         return nombre;

@@ -22,6 +22,46 @@ public class Empresa {
         } return null;
     }
 
+    public void showInfoNombreDepartamento(String name) {
+        Departamento departamento = buscarDepartamento(name);
+        if (departamento != null) {
+            System.out.println("Nombre: " + departamento.getNombre());
+            System.out.println("Presupuesto: " + departamento.getPresupuesto());
+            System.out.println("Empleados: ");
+            System.out.println();
+            departamento.showInfoEmpleado();
+            System.out.println();
+        } else {
+            System.out.println("Error, no se encuentra el departamento");
+        }
+    }
+
+    public void showEmpleadoDepartmentoNif(String name, String nif) {
+        Departamento departmento = buscarDepartamento(name);
+        if (departmento != null) {
+            var employee = departmento.findEmpleadoNif(nif);
+            if (employee != null) {
+                System.out.println("Empleado");
+                employee.showInfo();
+            } else {
+                System.out.println("No se encuentra el empleado en el departamento");
+            }
+        } else {
+            System.out.println("No existe el departamento");
+        }
+    }
+
+    public void showEmpleadoDepartamentoNombre(String name) {
+        Departamento departmento = buscarDepartamento(name);
+        if (departmento != null) {
+            System.out.println("Empleados: ");
+            System.out.println();
+            departmento.showInfoEmpleado();
+        } else {
+            System.out.println("Error, no se encuentra el departamento");
+        }
+    }
+
     public String getNombre() {
         return nombre;
     }

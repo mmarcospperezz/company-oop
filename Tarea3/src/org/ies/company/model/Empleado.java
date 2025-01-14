@@ -17,6 +17,10 @@ public class Empleado {
         this.puesto = puesto;
     }
 
+    public void showInfo(){
+        System.out.println("Informacion del empleado:" + getNif() + getNombre() + getApellidos() + getPuesto());
+    }
+
     public String getNif() {
         return nif;
     }
